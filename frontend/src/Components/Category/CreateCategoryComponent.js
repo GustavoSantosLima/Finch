@@ -15,7 +15,9 @@ class ListCategoryComponent extends Component {
         return this.setState({ name: e.target.value })
     }
 
-    handleSubmit() {
+    handleSubmit(e) {
+        e.preventDefault();
+
         create(this.state.name).then(() => {
             this.props.history.push('/category');
         })
@@ -26,13 +28,13 @@ class ListCategoryComponent extends Component {
             <Container>
                 <Row>
                     <Col xs="12" md="12" sm="12">
-                        <Form>
+                        <Form onSubmit={ this.handleSubmit }>
                             <FormGroup>
                                 <Label>Nome:</Label>
-                                <Input type="text" name="name" onChange={ this.handleChange } placeholder="Digite o nome da categoria..." />
+                                <Input type="text" name="name" onChange={ this.handleChange } placeholder="Digite o nome da categoria..." required={true} />
                             </FormGroup>
                             <FormGroup>
-                                <Button color="success" onClick={ this.handleSubmit }>Salvar</Button>
+                                <Button color="success">Salvar</Button>
                             </FormGroup>
                         </Form>
                     </Col>

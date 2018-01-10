@@ -24,10 +24,10 @@ class HeaderComponent extends Component {
                         <Collapse isOpen={ this.state.isOpen } navbar>
                             <Nav navbar>
                                 <NavItem>
-                                    <NavLink href="/category">Categoria</NavLink>
+                                    <NavLink href="/bill">Conta</NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink href="/bill">Conta</NavLink>
+                                    <NavLink href="/category">Categoria</NavLink>
                                 </NavItem>
                             </Nav>
                         </Collapse>

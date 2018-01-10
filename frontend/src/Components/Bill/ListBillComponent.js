@@ -47,7 +47,7 @@ class ListBillComponent extends Component {
                                 { bills.map((bill, index) => (
                                     <tr key={ index }>
                                         <td>{ bill.name }</td>
-                                        <td>{ bill.value }</td>
+                                        <td>{ 'R$' + bill.value }</td>
                                         <td>{ bill.type }</td>
                                         <td>
                                             <Button color="danger" onClick={ () => this.handleDelete(bill) }>Excluir</Button>

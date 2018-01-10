@@ -46,7 +46,9 @@ class CreateBillComponent extends Component {
         })
     }
 
-    handleSubmit() {
+    handleSubmit(e) {
+        e.preventDefault();
+
         let { name, value, type, category } = this.state;
 
         create(name, value, type, category).then(() => {
@@ -61,14 +63,14 @@ class CreateBillComponent extends Component {
             <Container>
                 <Row>
                     <Col xs="12" md="12" sm="12">
-                        <Form>
+                        <Form onSubmit={ this.handleSubmit }>
                             <FormGroup>
                                 <Label>Nome:</Label>
-                                <Input type="text" name="name" placeholder="Digite o nome da conta..." onChange={ this.hendleChangeName } />
+                                <Input type="text" name="name" placeholder="Digite o nome da conta..." onChange={ this.hendleChangeName } required={true} />
                             </FormGroup>
                             <FormGroup>
                                 <Label>Valor:</Label>
-                                <NumberFormat value={ this.state.value } className="form-control" thousandSeparator={true} prefix={'R$'} decimalPrecision={2} onChange={ this.hendleChangeValue } />
+                                <NumberFormat value={ this.state.value } className="form-control" thousandSeparator={true} prefix={'R$'} decimalPrecision={2} onChange={ this.hendleChangeValue } required={true} />
                             </FormGroup>
                             <FormGroup>
                                 <Label>Tipo:</Label>
@@ -88,7 +90,7 @@ class CreateBillComponent extends Component {
                                 </Input>
                             </FormGroup>
                             <FormGroup>
-                                <Button color="success" onClick={ this.handleSubmit }>Salvar</Button>
+                                <Button color="success">Salvar</Button>
                             </FormGroup>
                         </Form>
                     </Col>
